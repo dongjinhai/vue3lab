@@ -10,6 +10,7 @@ const { x, y } = useMouse()
 <template>
   <div>Home</div>
   <div>Mouse position is at: {{ x }}, {{ y }}</div>
+  <h1> {{ $translate('greetings.hello') }}</h1>
 </template>
 
 <style lang="scss" scoped></style>
