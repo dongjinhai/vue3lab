@@ -16,7 +16,7 @@ Object.keys(components).forEach((key) => {
   const module = components[key];
 
   routes.push({
-    path: `/${module.default.name}`,
+    path: `/${module?.default?.name}`,
     name: module.default.name,
     component: () => module,
   });
