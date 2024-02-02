@@ -1,22 +1,25 @@
 import { createRouter, createWebHashHistory } from "vue-router";
+import type { Router, RouteRecordRaw } from 'vue-router';
 
-const components = import.meta.glob(["../views/**/index.vue"], { eager: true });
+type ModuleComp = typeof import("../views/home/index.vue")
+
+const components: Record<string, ModuleComp> = import.meta.glob(["../views/**/index.vue"], { eager: true });
 console.log(components);
 
-const routes = [];
+const routes: RouteRecordRaw[] = [];
 
 Object.keys(components).forEach((key) => {
-  console.log(key);
-  const module = components[key];
+  const module: ModuleComp = components[key];
+  console.log(key, module);
 
   routes.push({
     path: `/${module?.default?.name}`,
-    name: module.default.name,
+    name: module?.default?.name,
     component: () => module,
   });
 });
 
-const router = createRouter({
+const router: Router = createRouter({
   history: createWebHashHistory(),
   routes: routes,
 });
