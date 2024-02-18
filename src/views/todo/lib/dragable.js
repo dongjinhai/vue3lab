@@ -13,17 +13,23 @@ function dragablize(list) {
 
   list?.addEventListener("dragenter", (e) => {
     e.preventDefault();
-    if (e.target === currentLi || e.target === list) {
+    let target = e.target;
+    if (target === currentLi || target === list) {
       return;
+    }
+
+    // 获取list的真正子节点
+    while (target.parentNode !== list) {
+      target = target.parentNode;
     }
     let liArray = Array.from(list?.childNodes);
     let currentIndex = liArray.indexOf(currentLi);
-    let targetIndex = liArray.indexOf(e.target);
+    let targetIndex = liArray.indexOf(target);
 
     if (currentIndex < targetIndex) {
-      list?.insertBefore(currentLi, e.target.nextElementSibling);
+      list?.insertBefore(currentLi, target.nextElementSibling);
     } else {
-      list?.insertBefore(currentLi, e.target);
+      list?.insertBefore(currentLi, target);
     }
   });
 
