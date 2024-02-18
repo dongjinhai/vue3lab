@@ -19,6 +19,8 @@ Object.keys(components).forEach((key) => {
   });
 });
 
+console.log(routes);
+
 const router: Router = createRouter({
   history: createWebHashHistory(),
   routes: routes,
