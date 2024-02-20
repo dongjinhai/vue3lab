@@ -9,7 +9,12 @@ defineOptions({
   name: "ToDo",
 });
 
-const tasks = ref([
+type Task = {
+  isCompleted: boolean;
+  content: string;
+};
+
+const tasks = ref<Array<Task>>([
   { isCompleted: false, content: "xiaohong" },
   { isCompleted: false, content: "xiaoming" },
   { isCompleted: true, content: "xiaoqiang" },
@@ -38,7 +43,7 @@ function switchState(idx: number) {
   tasks.value[idx].isCompleted = !tasks.value[idx].isCompleted;
 }
 
-function filter(task) {
+function filter(task: Task) {
   if (showType.value === "all") {
     return true;
   }
@@ -69,7 +74,6 @@ onMounted(() => {
       ></Header>
       <div id="items" class="flex-grow m-1 scrollbar">
         <div v-for="(task, idx) in tasks" draggable="true">
-          <!-- {{ idx }} -->
           <Item
             class="border border-solid border-orange-300 my-1 shadow-md hover:bg-orange-200"
             v-if="filter(task)"
