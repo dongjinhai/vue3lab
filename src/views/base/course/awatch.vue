@@ -8,7 +8,7 @@ const question = ref("");
 const answer = ref("Questions usually contain a question mark.");
 const loading = ref(false);
 // 可以直接侦听一个 ref
-watch(question, async (newQuestion, oldQuestion) => {
+watch(question, async (newQuestion, _) => {
   if (newQuestion.includes("?")) {
     loading.value = true;
     answer.value = "Thinking...";

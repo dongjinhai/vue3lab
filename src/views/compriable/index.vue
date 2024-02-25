@@ -8,7 +8,7 @@ defineOptions({
 onMounted(() => {
   let list = document.querySelector('.list');
   let currentLi;
-  list?.addEventListener('dragstart', (e) => {
+  list?.addEventListener('dragstart', (e: DragEvent) => {
     e.dataTransfer.effectAllowed = 'move';
     currentLi = e.target;
     setTimeout(() => {
@@ -19,19 +19,19 @@ onMounted(() => {
     })
   })
 
-  list?.addEventListener('dragenter', (e) => {
+  list?.addEventListener('dragenter', (e: DragEvent) => {
     e.preventDefault();
     if (e.target === currentLi || e.target === list) {
       return
     }
     let liArray = Array.from(list?.childNodes);
     let currentIndex = liArray.indexOf(currentLi);
-    let targetIndex = liArray.indexOf(e.target);
+    let targetIndex = liArray.indexOf(e.target as HTMLElement);
     
     if (currentIndex < targetIndex) {
-      list?.insertBefore(currentLi, e.target.nextElementSibling);
+      list?.insertBefore(currentLi, (e.target as HTMLElement).nextElementSibling);
     } else {
-      list?.insertBefore(currentLi, e.target);
+      list?.insertBefore(currentLi, e.target as HTMLElement);
     }
   })
 
@@ -39,7 +39,7 @@ onMounted(() => {
     e.preventDefault();
   })
   
-  list?.addEventListener('dragend', (e) => {
+  list?.addEventListener('dragend', (_e) => {
     // currentLi.classList.remove('moving');
     currentLi.style.removeProperty('background');
     currentLi.style.removeProperty('color');
