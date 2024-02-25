@@ -5,7 +5,7 @@ WORKDIR /app
 RUN npm config set registry https://registry.npmmirror.com
 
 COPY package.json package-lock.josn ./
-RUN npm install --package-lock-only
+RUN npm install
 
 COPY . .
 RUN npm run build
