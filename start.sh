@@ -5,5 +5,5 @@ docker build -t vue3lab .
 echo "=======结束并删除容器====="
 docker stop vue3labctr; docker rm vue3labctr
 
-echo "=======启动容器======"
-docker run -d -t vue3labctr -p 80:80 vue3lab
+echo "=======启动容器======
+docker run -d -p 80:80 --name vue3labctr vue3lab
