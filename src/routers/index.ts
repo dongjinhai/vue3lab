@@ -3,14 +3,25 @@ import type { Router, RouteRecordRaw } from 'vue-router';
 
 type ModuleComp = typeof import("../views/home/index.vue")
 
-const components: Record<string, ModuleComp> = import.meta.glob(["../views/**/index.vue"], { eager: true });
-console.log(components);
+const modules: Record<string, ModuleComp> = import.meta.glob(["../views/**/index.vue"], { eager: true });
+console.log(modules);
 
-const routes: RouteRecordRaw[] = [];
+const routes: RouteRecordRaw[] = [
+  {
+    path: '/about',
+    name: 'About',
+    component: () => import('../views/about/index.vue')
+  },
+  {
+    path: '/base',
+    name: 'Base',
+    component: () => import('../views/base/index.vue')
+  }
+];
 
-Object.keys(components).forEach((key) => {
-  const module: ModuleComp = components[key];
-  console.log(key, module);
+Object.keys(modules).forEach((path) => {
+  const module: ModuleComp = modules[path];
+  console.log(path, module);
 
   routes.push({
     path: `/${module?.default?.name}`,
