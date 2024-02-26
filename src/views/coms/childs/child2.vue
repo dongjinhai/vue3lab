@@ -6,6 +6,7 @@ const propsTs = defineProps<{
   title?: string;
   likes?: number;
 }>();
+console.log(propsTs)
 const emit = defineEmits(['font-change'])
 
 // 可以在script中是直接使用emit

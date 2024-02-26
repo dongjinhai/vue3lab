@@ -4,6 +4,7 @@ defineOptions({
 });
 
 const props = defineProps(["task", "idx"]);
+console.log(props)
 const emit = defineEmits(["delete", "switchState"]);
 </script>
 

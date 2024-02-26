@@ -3,14 +3,17 @@ defineOptions({
   name: "Base",
 });
 
+type ModuleComp = typeof import("./course/awatch.vue")
+
 // 自动将course目录下的.vue文件导入进来并显示到页面上
-const modules = import.meta.glob("./course/*.vue", { eager: true });
+const modules: Record<string, ModuleComp> = import.meta.glob("./course/*.vue", { eager: true });
+
 console.log(modules);
 
 const coms: any[] = [];
 for (const path in modules) {
   console.log(path, modules[path]);
-  coms.push(modules[path].default);
+  coms.push(modules[path]?.default);
 }
 </script>
 
