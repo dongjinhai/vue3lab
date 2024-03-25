@@ -30,6 +30,8 @@ const routes: RouteRecordRaw[] = [
 //   });
 // });
 
+console.log(routes);
+
 const router: Router = createRouter({
   history: createWebHashHistory(),
   routes: routes,

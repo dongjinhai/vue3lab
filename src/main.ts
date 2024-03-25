@@ -2,6 +2,7 @@ import { createApp } from "vue";
 import "./style.css";
 import App from "./App.vue";
 import { router } from "./routers";
+import { setupStore } from "./store";
 
 import i18nPlugin from "./plugin/i18n";
 
@@ -16,5 +17,6 @@ app.use(i18nPlugin, {
     hello: "Bonjour!",
   },
 });
+setupStore(app);
 app.config.globalProperties.$msg = msg;
 app.mount("#app");
