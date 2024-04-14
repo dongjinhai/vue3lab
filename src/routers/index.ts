@@ -1,22 +1,22 @@
 import { createRouter, createWebHashHistory } from "vue-router";
-import type { Router, RouteRecordRaw } from 'vue-router';
+import type { Router, RouteRecordRaw } from "vue-router";
 
-type ModuleComp = typeof import("../views/home/index.vue")
+type ModuleComp = typeof import("../views/home/index.vue");
 
 // const modules: Record<string, ModuleComp> = import.meta.glob(["../views/**/index.vue"], { eager: true });
 // console.log(modules);
 
 const routes: RouteRecordRaw[] = [
   {
-    path: '/about',
-    name: 'About',
-    component: () => import('../views/about/index.vue')
+    path: "/about",
+    name: "About",
+    component: () => import("../views/about/index.vue"),
   },
   {
-    path: '/base',
-    name: 'Base',
-    component: () => import('../views/base/index.vue')
-  }
+    path: "/base",
+    name: "Base",
+    component: () => import("../views/base/index.vue"),
+  },
 ];
 
 // Object.keys(modules).forEach((path) => {
