@@ -1,7 +1,7 @@
-import { ComponentCustomProperties } from "vue"
+import { ComponentCustomProperties } from "vue";
 
 declare module "vue" {
-  interface ComponentCustomProperties{
+  interface ComponentCustomProperties {
     $msg: (msg: string) => void;
     $translate: (msg: string) => void;
   }
