@@ -5,7 +5,9 @@ defineOptions({
   name: 'HooksTest'
 })
 
-const { refCount, doubleCount, increase } = useCounter(10)
+const { refCount, doubleCount, increase, node } = useCounter(10)
+
+const BtnNode = node()
 
 </script>
 
@@ -13,6 +15,7 @@ const { refCount, doubleCount, increase } = useCounter(10)
   <div>
     <div>数字: {{ refCount }}, 双倍: {{ doubleCount }}</div>
     <button @click="increase(1)" style="border: solid;">增加</button>
+    <BtnNode></BtnNode>
   </div>
 </template>
 
