@@ -6,7 +6,7 @@ import App from "./App.vue";
 import { router } from "./routers";
 import { setupStore } from "./store";
 
-import i18nPlugin from "./plugin/i18n";
+import i18nPlugin from "./plugins/i18n";
 
 function msg(s: any) {
   alert(s);
