@@ -22,6 +22,11 @@ const routes: RouteRecordRaw[] = [
     name: "Hooks",
     component: () => import("../views/hooks/index.vue"),
   },
+  {
+    path: "/editor",
+    name: "Editor",
+    component: () => import("../views/editor/index.vue"),
+  }
 ];
 
 // Object.keys(modules).forEach((path) => {
