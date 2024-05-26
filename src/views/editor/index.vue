@@ -11,7 +11,7 @@ const code = ref("");
 <template>
   <div class="w-full h-full">
     <div class="w-1/2">
-      <CodeEditor v-model:text="code"></CodeEditor>
+      <CodeEditor v-model:text="code" :read-only="false"></CodeEditor>
     </div>
     <pre>{{ code }}</pre>
   </div>
