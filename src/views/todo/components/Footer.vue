@@ -25,6 +25,7 @@ function addContent() {
         class="m-1 px-4 py-2 border border-gray-300 rounded-md flex-grow"
         placeholder="输入框"
         v-model="content"
+        @keyup.enter="addContent"
       />
       <button
         class="m-1 px-4 py-2 bg-blue-500 hover:bg-blue-700 text-white font-bold rounded-md"
