@@ -1,18 +1,19 @@
 import { createRouter, createWebHashHistory } from "vue-router";
-import type { Router, RouteRecordRaw } from 'vue-router';
+import type { Router, RouteRecordRaw } from "vue-router";
 
-type ModuleComp = typeof import("../views/home/index.vue")
+type ModuleComp = typeof import("../views/home/index.vue");
 
 // const modules: Record<string, ModuleComp> = import.meta.glob(["../views/**/index.vue"], { eager: true });
 // console.log(modules);
 
 const routes: RouteRecordRaw[] = [
   {
-    path: '/about',
-    name: 'About',
-    component: () => import('../views/about/index.vue')
+    path: "/about",
+    name: "About",
+    component: () => import("../views/about/index.vue"),
   },
   {
+<<<<<<< HEAD
     path: '/base',
     name: 'Base',
     component: () => import('../views/base/index.vue')
@@ -27,6 +28,27 @@ const routes: RouteRecordRaw[] = [
     name: 'Porps测试',
     component: () => import('../views/props/index.vue')
   } 
+=======
+    path: "/base",
+    name: "Base",
+    component: () => import("../views/base/index.vue"),
+  },
+  {
+    path: "/hooks",
+    name: "Hooks",
+    component: () => import("../views/hooks/index.vue"),
+  },
+  {
+    path: "/editor",
+    name: "Editor",
+    component: () => import("../views/editor/index.vue"),
+  },
+  {
+    path: "/todo",
+    name: "ToDo",
+    component: () => import("../views/todo/index.vue"),
+  }
+>>>>>>> c78d4841c20ef5f3600ae323be088b180c0cde5a
 ];
 
 // Object.keys(modules).forEach((path) => {
