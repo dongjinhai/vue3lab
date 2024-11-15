@@ -16,7 +16,17 @@ const routes: RouteRecordRaw[] = [
     path: '/base',
     name: 'Base',
     component: () => import('../views/base/index.vue')
-  }
+  },
+  {
+    path: '/loading',
+    name: 'ListLoading',
+    component: () => import('../views/list_loading/index.vue')
+  },
+ {
+    path: '/props',
+    name: 'Porps测试',
+    component: () => import('../views/props/index.vue')
+  } 
 ];
 
 // Object.keys(modules).forEach((path) => {
