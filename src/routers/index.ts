@@ -13,6 +13,22 @@ const routes: RouteRecordRaw[] = [
     component: () => import("../views/about/index.vue"),
   },
   {
+<<<<<<< HEAD
+    path: '/base',
+    name: 'Base',
+    component: () => import('../views/base/index.vue')
+  },
+  {
+    path: '/loading',
+    name: 'ListLoading',
+    component: () => import('../views/list_loading/index.vue')
+  },
+ {
+    path: '/props',
+    name: 'Porps测试',
+    component: () => import('../views/props/index.vue')
+  } 
+=======
     path: "/base",
     name: "Base",
     component: () => import("../views/base/index.vue"),
@@ -37,6 +53,7 @@ const routes: RouteRecordRaw[] = [
     name: "Chat",
     component: () => import("../views/chat/index.vue")
   }
+>>>>>>> c78d4841c20ef5f3600ae323be088b180c0cde5a
 ];
 
 // Object.keys(modules).forEach((path) => {
