@@ -47,6 +47,11 @@ const routes: RouteRecordRaw[] = [
     path: "/todo",
     name: "ToDo",
     component: () => import("../views/todo/index.vue"),
+  },
+  {
+    path: "/chat",
+    name: "Chat",
+    component: () => import("../views/chat/index.vue")
   }
 >>>>>>> c78d4841c20ef5f3600ae323be088b180c0cde5a
 ];
