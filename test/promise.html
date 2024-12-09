@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>Promise测试</div>
+  <p>
+    .catch 相当于then中resolve 为undefine，reject为catch中的回调函数
+    ```
+    get('story.json').then(function(response) {
+      console.log("Success!", response);
+    }).catch(function(error) {
+      console.log("Failed!", error);
+    })
+    ```
+    等于
+    ```
+    get('story.json').then(function(response) {
+      console.log("Success!", response);
+    }).then(undefined, function(error) {
+      console.log("Failed!", error);
+    })
+    ```
+  </p>
+  
+</body>
+<script>
+function test1() {
+  const a1 = new Promise(
+    (resolve, reject) => { 
+      resolve(1)
+      // reject(1)
+    })
+  .then (
+    () => { console.log("a2"); }
+  )
+  .then(
+    () => { 
+      console.log("a3");
+      // throw new Error('a3 error')
+    }
+  )
+  .catch(
+    (err) => { console.log(`r1: ${err}`);}
+  )
+  .then(
+    () => {
+      console.log("a4");
+      // throw new Error('a4 error')
+    },
+    (err) => { console.log(`r2: ${err}`);}
+  )
+  .then(
+    () => {
+      throw new Error('then 报错')
+    }
+  )
+  .then(
+    undefined,
+    (err) => {
+      console.log(`xxx: ${err}`);
+    }
+  )
+  .catch(
+    (err) => {console.log(console.log(`r3: ${err}`))}
+  )
+}
+
+function wait() {
+  new Promise(
+    (resolve, reject) => {
+      resolve(1)
+    }
+  ).then(
+    (res) => {
+      return Promise.all([
+        setTimeout(
+          ()=>{ console.log('done1');},
+          2000
+        ),
+        setTimeout(
+          ()=>{ console.log('done1');},
+          3000
+        ),
+      ])
+      // return res += 1
+    }
+  ).then(
+    (res) => {
+      console.log(`res: ${res}`);
+    }
+  )
+
+  .catch(err => {
+    console.log(err);
+  })
+}
+
+wait()
+  
+</script>
+</html>

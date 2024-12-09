@@ -36,7 +36,17 @@ const routes: RouteRecordRaw[] = [
     path: "/chat",
     name: "Chat",
     component: () => import("../views/chat/index.vue")
-  }
+  },
+  {
+    path: "/indexed",
+    name: "IndexedDB",
+    component: () => import("../views/indexedDB/index.vue")
+  },
+  {
+    path: "/vueuse",
+    name: "VueUse",
+    component: () => import("../views/vueuse/index.vue")
+  },
 ];
 
 // Object.keys(modules).forEach((path) => {
