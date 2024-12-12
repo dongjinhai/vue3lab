@@ -1,13 +1,15 @@
 import Dexie, { type EntityTable } from "dexie";
 
 const db = new Dexie('FriendDatabase') as Dexie & {
+  histories: EntityTable<Chat.History, 'id'>,
   friends: EntityTable<Chat.Friend, 'id'>
-  histories: EntityTable<Chat.History, 'id'>
+  goods: EntityTable<Chat.Good, 'id'>
 };
 
-db.version(1).stores({
-  friends: '++id, name, age',
-  histories: 'id, name, content'
+db.version(3).stores({
+  goods: '++id, friendId, name',
+  friends: '++id, historyId, name',
+  histories: '++id, name'
 })
 
 

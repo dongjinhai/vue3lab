@@ -1,13 +1,17 @@
 declare namespace Chat {
+  interface Good {
+    id: number;
+    friendId: number;
+    name: string;
+  }
   interface Friend {
     id: number;
+    historyId: number;
     name: string;
-    age: number;
   }
   
   interface History {
     id: string;
     name: string;
-    content: string;
   }
 }

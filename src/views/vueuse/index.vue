@@ -2,7 +2,7 @@
 import { useDraggable } from "@vueuse/core";
 import { ref } from "vue";
 import DraggableBox from "./components/DraggableBox.vue";
-import box from "./components/Box.vue";
+import PlotlyBox from "./lib";
 
 defineOptions({
   name: "VueUse",
@@ -22,21 +22,26 @@ const addBox = () => {
   });
 };
 
-const el2 = ref<HTMLElement | null>(null);
+const addPlotly = () => {
+  PlotlyBox.create('画图', 300, 300, 100, 100)
+}
 
-const { x, y, style } = useDraggable(el2, {
-  initialValue: { x: 600, y: 400 },
-});
+// const el2 = ref<HTMLElement | null>(null);
+
+// const { x, y, style } = useDraggable(el2, {
+//   initialValue: { x: 600, y: 400 },
+// });
 </script>
 
 <template>
   <div class="w-full h-full bg-green-200">
-    <button @click="addBox">Add Draggable Box</button>
+    <button @click="addBox">Add Draggable Box</button><br>
+    <button @click="addPlotly">Add Plotly Box</button>
   </div>
   <!-- <div ref="el" :style="style" style="position: fixed">
     Drag me! I am at {{ Math.round(x) }}, {{ Math.round(y) }}
   </div> -->
-  <div
+  <!-- <div
     ref="el2"
     p="x-4 y-2"
     shadow="~ hover:lg"
@@ -61,7 +66,7 @@ const { x, y, style } = useDraggable(el2, {
     :data="{ name: 'xxxx' }"
     :initialPositon="{ x: 200, y: 200 }"
     :initialSize="{ width: 200, height: 200 }"
-  ></box>
+  ></box> -->
 </template>
 
 <style lang="scss" scoped></style>
