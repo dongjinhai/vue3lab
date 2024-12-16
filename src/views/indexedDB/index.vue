@@ -74,6 +74,8 @@ const friensdObs = liveQuery(
 const source = queryObs.pipe(map(() => friensdObs))
 const out = source.pipe(switchAll())
 const friends2 = useObservable(out)
+console.log(friends2);
+
 
 const histories = useObservable(
   from(

@@ -47,6 +47,11 @@ const routes: RouteRecordRaw[] = [
     name: "VueUse",
     component: () => import("../views/vueuse/index.vue")
   },
+  {
+    path: "/rxjs",
+    name: "Rxjs",
+    component: () => import("../views/rxjs/index.vue")
+  },
 ];
 
 // Object.keys(modules).forEach((path) => {
