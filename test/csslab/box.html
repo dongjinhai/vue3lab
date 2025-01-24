@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="parent">
+      <div class="child"></div>
+    </div>
+    <p>由于主题颜色被设置为蓝色，因此该颜色会被子元素继承。</p>
+    <p>
+      我们可以通过选择器定位元素来改变颜色，比如这个<span>内容跨越</span>元素。
+    </p>
+  </body>
+  <style>
+    .parent {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+    .child {
+      background-color: green;
+      width: 50px;
+      height: 50px;
+      padding: 20px;
+      margin: 100px;
+    }
+    body {
+      color: blue;
+    }
+
+    span {
+      color: black;
+    }
+  </style>
+</html>

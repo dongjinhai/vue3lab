@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>初始文本</h1>
+  <h2>标题2</h2>
+  <button>开始执行</button>
+</body>
+<script>
+  let h1 = document.querySelector('h1')
+  let btn = document.querySelector('button')
+  
+  function delay(duriation) {
+    let d1 = Date.now()
+    while(Date.now() - d1 < duriation) {}
+  }
+  
+  btn.onclick = function () {
+    h1.textContent = '改变了';
+    console.log('click');
+    delay(3000);
+  }
+</script>
+</html>
